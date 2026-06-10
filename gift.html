@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>A Gift For Sky</title>
+
+        <style>
+
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+            }
+
+            body{
+                background:#ffffff;
+                font-family:Georgia, serif;
+                overflow-x:hidden;
+            }
+
+            section{
+                min-height:100vh;
+                padding:80px 10%;
+            }
+
+            .title{
+                text-align:center;
+                margin-bottom:50px;
+            }
+
+            .title h1{
+                font-size:3rem;
+            }
+
+            .title p{
+                margin-top:10px;
+            }
+
+            .reveal{
+                opacity:0;
+                transform:translateY(50px);
+                transition:1s;
+            }
+
+            .reveal.active{
+                opacity:1;
+                transform:translateY(0);
+            }
+
+            /* LETTERS */
+
+            .letters{
+                display:grid;
+                grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+                gap:30px;
+                max-width:1200px;
+                margin:auto;
+            }
+
+            .letter-card{
+                background:white;
+                border-radius:20px;
+                padding:20px;
+                text-align:center;
+                cursor:pointer;
+                transition:0.3s;
+                box-shadow:0 5px 20px rgba(0,0,0,0.15);
+            }
+
+            .letter-card:hover{
+                transform:translateY(-10px);
+            }
+
+            .envelope{
+                width:120px;
+                margin-bottom:15px;
+                transition:0.3s;
+            }
+
+            .letter-card:hover .envelope{
+                transform:scale(1.1);
+            }
+
+            /* MEMORIES */
+
+            .memories{
+                display:flex;
+                flex-direction:column;
+            }
+
+            .memories{
+                display:grid;
+                grid-template-columns:repeat(4, 1fr);
+                gap:20px;
+            }
+
+            .memory img{
+                width:100%;
+                height:250px;
+                object-fit:cover;
+            }
+
+            /* VIDEO */
+
+            .video-container{
+                display:flex;
+                justify-content:center;
+            }
+
+            video{
+                width:80%;
+                max-width:800px;
+                border-radius:20px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+<!-- INTRO -->
+<!-- Gift Box -->
+
+        <div id="giftBox">
+
+            <img src="box.jpg" id="giftImage" onclick="openGift()">
+
+            <h1>A mysterious package for someone special</h1>
+            
+            <style>
+            #content{
+                    display:none;
+                }
+
+                #giftBox{
+                    height:100vh;
+
+                    display:flex;
+                    flex-direction:column;
+
+                    justify-content:center;
+                    align-items:center;
+                }
+
+                #giftImage{
+                    width:250px;
+                    cursor:pointer;
+                    transition:.4s;
+                }
+
+                #giftImage:hover{
+                    transform:scale(1.1);
+                }
+            </style>
+
+            <script>
+                function openGift(){
+
+                    document.getElementById("giftBox").style.display = "none";
+
+                    document.getElementById("content").style.display = "block";
+
+                    window.scrollTo({
+                        top:0,
+                        behavior:"smooth"
+                    });
+
+                }
+            </script>
+        </div>
+
+        <div id="content">
+
+            <!-- LETTERS -->
+            <section>
+
+                    <div class="title reveal">
+                        <h1>💌 Beep beep! Incoming letters for you</h1>
+                    </div>
+
+                    <div id="popup" class="popup">
+
+                        <div class="popup-content">
+
+                            <span class="close" onclick="closeLetter()">
+                                &times;
+                            </span>
+
+                            <div id="popupText"></div>
+
+                        </div>
+
+                    </div>
+                    
+                    <div class="letters reveal">
+                        <div class="letter-card" onclick="openLetter('letter1')">
+                        <img src="envelope.jpg" class="envelope">
+                            <h3>From Philia</h3>
+                        </div>
+
+                        <div class="letter-card" onclick="openLetter('letter2')">
+                        <img src="envelope.jpg" class="envelope">
+                            <h3>From VIGILANT3 (Son from hell)</h3>
+                        </div>
+
+                        <div class="letter-card" onclick="openLetter('letter3')">
+                        <img src="envelope.jpg" class="envelope">
+                            <h3>From A</h3>
+                        </div>
+
+                        <div class="letter-card" onclick="openLetter('letter4')">
+                        <img src="envelope.jpg" class="envelope">
+                            <h3>From your dearest, Amanda (tree)</h3>
+                        </div>
+
+                        <div class="letter-card" onclick="openLetter('letter5')">
+                        <img src="envelope.jpg" class="envelope">
+                            <h3>From Shadow legend2308</h3>
+                        </div>
+
+                        <div class="letter-card" onclick="openLetter('letter6')">
+                        <img src="envelope.jpg" class="envelope">
+                            <h3>From Leonor</h3>
+                        </div>
+
+                        <div class="letter-card" onclick="openLetter('letter7')">
+                        <img src="envelope.jpg" class="envelope">
+                                <h3>From Lian</h3>
+                        </div>
+
+                        <div class="letter-card" onclick="openLetter('letter8')">
+                        <img src="envelope.jpg" class="envelope">
+                                <h3>From Franze</h3>
+                        </div>
+
+                        <div class="letter-card" onclick="openLetter('letter9')">
+                        <img src="envelope.jpg" class="envelope">
+                                <h3>From Lanxey, </br>Le child</h3>
+                        </div>
+
+                        <div class="letter-card" onclick="openLetter('letter10')">
+                        <img src="envelope.jpg" class="envelope">
+                                <h3>From Genjie</h3>
+                        </div>
+                    </div>
+
+                <style>
+                    .popup{
+                        display:none;
+                        position:fixed;
+                        top:0;
+                        left:0;
+                        width:100%;
+                        height:100%;
+                        background:rgba(0,0,0,0.7);
+
+                        justify-content:center;
+                        align-items:center;
+
+                        z-index:1000;
+                    }
+
+                    .popup-content{
+                        background:white;
+                        width:80%;
+                        max-width:800px;
+                        max-height:80vh;
+
+                        overflow-y:auto;
+
+                        padding:40px;
+                        border-radius:20px;
+                    }
+
+                    .close{
+                        float:right;
+                        font-size:35px;
+                        cursor:pointer;
+                    }
+                </style>
+
+                <script>
+                    function openLetter(letter){
+
+                        const popup = document.getElementById("popup");
+                        const text = document.getElementById("popupText");
+
+                        text.innerHTML = letters[letter];
+
+                        popup.style.display = "flex";
+                    }
+
+                    function closeLetter(){
+                        document.getElementById("popup").style.display = "none";
+                    }
+
+                    const letters = {
+
+                        letter1: `
+                        <h2>From Philia</h2></br>
+
+                        <p>
+                            Happy day for it's my Mother's birthday!! </br>
+
+                            </br> Happy birthday, Mother! Best wishes and prayers to you! May this day be a great day for you because today is YOUR day 
+                            and I hope it's as warm, kind, and beautiful as you make every day for us.
+
+                            </br> Best wishes and prayers to you, our beloved Mother! May this day be also filled 
+                            with laughter, great food, and all the little things that brings a smile to your face.
+
+                            </br> May today be as bright and special as the light you bring into every room. 
+                            May this day also bring you peace, good health, and all the joy you've given everyone else. 
+                            I pray your heart stays as young as your spirit and that every wish you make today, comes true:D
+
+                            </br>You deserve all the joy today. Enjoy it, Mother. For you've earned and deserve every single bit of it 🩷 
+                        </p>
+                        `,
+
+                        letter2: `
+                        <h2>From VIGILANT3</h2></br>
+
+                        <p>
+                                Happy Birthday MOTHER! </br>
+
+                                </br>It's honestly amazing how someone I've never met in person can become such an important part of my life.
+                                From all the conversations we've had, the laughs we've shared, and even the random moments that seemed small at the time,
+                                you've helped create memories I'll always cherish. Your friendship has brought so much happiness into my life. 
+                                I'm truly grateful that our paths crossed, because knowing you has made my world a little brighter. </br>
+
+                                On your birthday, I want you to know how much you mean to me. 
+                                You are kind, funny, caring,patient and your genuinely one of the people I look forward to talking to every day. 
+                                No matter how many miles separate us, I value our friendship more than words can fully express. 
+                                I hope this year brings you all the happiness, success, and love that you deserve, because someone as wonderful as you deserves nothing less,
+                                Thank you for being such an incredible friend. Happy Birthday, and here's to many more years of laughter, memories, and friendship. </br>
+
+                                </br>Thanks for being the best Mother ever 🥹
+                        </p>
+                        `,
+
+                        letter3: `
+                        <h2>From A</h2></br>
+
+                        <p>
+                            HIII MOTHER HAPPY HAPPY BIRTHDAY !!!🫶🥹 </br>
+
+                            </br> I js wanna say that I'm very grateful for you always for being there even tho I was always distant 
+                            thank you for being one of my biggest supporters and being one of the people whom I see as my role model 
+                            thank you for always being there for us thank you for giving us ur patience, understanding, familial love,and time even tho ur busy 
+                            u still tried to make time for us to check up on us even tho u urself is struggling. I js wanna let you know that ur one of the strongest people I know 
+                            so keep pushing and don't give up on anything js rest if rest is what u need but we'll always be here for ya. 
+                            Js enjoy this wonderful and special day js for you hoping for you to always stay safe take care and we love you so much js saying 
+                            this on behalf of ur DC family 
+                            
+                            </br> Mahal ka po namin at huwag ka pong sumuko sa Buhay nandito lang kami at honestly lang 
+                            Ikaw yung naging insperasyon ko para ipag patuloy Ang pagiging cosplayer salamat po and I luv you always 🩷 
+                        </p>
+                        `,
+
+                        letter4: `
+                        <h2>From your dearest, Amanda (tree)</h2></br>
+
+                        <p>
+                                Happy birthday dear Dazii!</br>
+
+                                </br> I hope this day treats you well. I'm so so proud of how far you've come, starry! </br>
+                                I remember reading a quote that says "For my part I know nothing with any certainty, but the sight of the stars makes me dream." 
+                                It instantly made me think of you. To me, you are my whole night sky full of stars. 
+                                Seeing or hearing anything about the stars and starry nights always makes me think of you. 
+                                I've noticed that each one of you brings your own unique light, and together, you make my and everybody else's world so so much brighter.
+                                I hope you receive all the happiness (and cake and hugs) you deserve.
+                                Holding on more than ever, tight tight 🩷
+                        </p>
+                        `,
+
+                        letter5: `
+                        <h2>From Shadow legend2308</h2></br>
+
+                        <p>
+                            Have a great birthday was lots of cheers and hopes from your friends sincerely shadow
+                        </p>
+                        `,
+
+                        letter6: `
+                        <h2>From Leonor</h2></br>
+
+                        <p>
+                                Hi Sky! </br>
+
+                                </br> Happy Birthday baby girl 💕 </br>
+
+                                </br>I know bago lang tayo naging friend but it was the nice thing that probably happened to my 2026! I wish you a blessed day and full of love! 
+                                </br>Rooting for your success darling :->
+                        </p>
+                        `,
+
+                        letter7:  `
+                        <h2>From Lian</h2></br>
+
+                        <p>
+                            Halloooo skyieeeieeee! Happyyyy birthdayyy! 🥳 </br>
+                            I know we’ve only met for a short time but you reminded me of my cousin so muchh 😣 </br>
+                            same vibes and all so maybe that’s why I enjoyed your company so much! I love your stories kahit naging distracted ako huhu. 
+                            I do wish na makapag bonding ulit tayo nila Fatima at Maria once again kasi yung time na nag kwekwentuhan 
+                            tayo was very therapeutic for meee 💕 I wish you well on your special day and may 
+                            this day remind you how much you are loved by everyone that surrounds you despite the many persecutions we face along the way. </br>
+                            
+                            </br>Happy birthday againnn! Leave no room for stress for now and let this day be yours! 💕
+                        </p>
+                        `,
+
+                        letter8:  `
+                        <h2>From Franze</h2></br>
+
+                        <p>
+                            Hellooooo MY BROSKIEEE Happy birthday!! </br>
+                            
+                            </br> I wish u all the best in lifee, so please don't leave us yet hehe, 
+                            I'm sorry if sometimes di kita nakaka musta even tho I told myself that I would, 
+                            I'm just really busyy since I also have dancing, yk training hehe. 
+                            More birthdays to come and sana all of your wish is matupadd and if u have a problem always know na u can always lapit to me 
+                            cause even tho I'm busy I can always make time for youu, I love you broo, you're my favorite cousinnn since you understand me 
+                            even tho we used to punch each other for fun back then </br>
+                            
+                            </br>lmaoo enjoy your day and always take care!!!
+                        </p>
+                        `,
+                        
+                        letter9:  `
+                        <h2>From Lanxey, </br> Le Child</h2></br>
+
+                        <p>
+                            Hello, Emman or father! </br>
+                            You're now turning 19, unbelievable! Thank you for being such a wonderful friend, a father, and a song companion kinda guy. 
+                            Make things joyful and memorable because you're making us happy and bringing us here together as friends, 
+                            I hope you make a good bunch of new friends and I hope this chapter of your life brings you genuine happiness and success for your future career, 
+                            I appreciate how you've become, and stay your humor, 'cause I'm trying to be like you; not entirely.
+                            Please, stay kind, be who you are, be the greatest, the best, and formidable. Stay alive, Emman. Enjoy your day to the fullest. 
+                            Happy birthday my father-like.</br>
+                            </br>(Oh my god you're now an unc now, that's crazy)
+                        </p>
+                        `,
+                        
+                        letter10:  `
+                        <h2>From Genjie</h2></br>
+
+                        <p>
+                        To our goofy friend,</br>
+                        Happy Birthday Emman!
+                        </br>Hope you had fun yesterday, cuz we do! And wishing you’ll fulfill your hopes & dreams. (undertale reference:3)</br>
+
+                        </br>Have another best birthday ever tomorrow!
+                        </p>
+                        `,       
+                    };
+                </script>
+            </section>
+
+            <!-- MEMORIES -->
+
+            <section>
+
+                <div class="title reveal">
+                    <h1>📸 Memories</h1>
+                </div>
+
+                <div class="memories">
+
+                    <div class="memory reveal">
+                        <img src="lizzy.png">
+                    </div>
+                    <div class="memory reveal">
+                        <img src="1.jpg">
+                    </div>
+
+                    <div class="memory reveal">
+                        <img src="2.jpg">
+                    </div>
+
+                    <div class="memory reveal">
+                        <img src="3.jpg">
+                    </div>
+                    
+                    <div class="memory reveal">
+                        <img src="4.jpg">
+                    </div>
+
+                    <div class="memory reveal">
+                        <img src="5.jpg">
+                    </div>
+
+                    <div class="memory reveal">
+                        <img src="6.jpg">
+                    </div>
+
+                    <div class="memory reveal">
+                        <img src="7.jpg">
+                    </div>
+
+                    <div class="memory reveal">
+                        <img src="8.jpg">
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- VIDEO -->
+
+            <section>
+
+                <div class="title reveal">
+                    <h1>🎥 One Last Thing...</h1>
+                </div>
+
+                <div class="video-container reveal">
+
+                    <video controls>
+                        <source src="video.mov" type="video/mp4">
+                    </video>
+
+                </div>
+
+            </section>
+
+            <script>
+
+            function toggleLetter(card){
+
+                const content = card.querySelector(".letter-content");
+
+                if(content.style.display === "block"){
+                    content.style.display = "none";
+                }else{
+                    content.style.display = "block";
+                }
+            }
+
+            const observer = new IntersectionObserver(entries => {
+
+                entries.forEach(entry => {
+
+                    if(entry.isIntersecting){
+                        entry.target.classList.add("active");
+                    }
+
+                });
+
+            });
+
+            document.querySelectorAll(".reveal").forEach(el => {
+                observer.observe(el);
+            });
+
+            </script>
+</body>
+</html>
